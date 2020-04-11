@@ -24,7 +24,8 @@ router.get("/api/chirps/:id", async (req, res) => {
 
 router.post("/api/chirps", async (req, res) => {
   try {
-    let body = req.body;
+    let body = {userid: 2, content: "New Post"};
+    console.log(body);
     res.json(await db.Chirps.insert(body));
   } catch (e) {
     console.log(e);
@@ -35,7 +36,7 @@ router.post("/api/chirps", async (req, res) => {
 router.put("/api/chirps/:id", async (req, res) => {
   try {
     let id = req.params.id;
-    let body = req.body.content;
+    let body = {userid: 1, content: "Edited Post"};
     res.json(await db.Chirps.update(id, body));
   } catch (e) {
     console.log(e);
@@ -46,7 +47,7 @@ router.put("/api/chirps/:id", async (req, res) => {
 router.delete("/api/chirps/:id", async (req, res) => {
   try {
     let id = req.params.id;
-    res.json((await db.Chirps.remove(id))[0]);
+    res.json(await db.Chirps.remove(id));
   } catch (e) {
     console.log(e);
     res.sendStatus(500);
