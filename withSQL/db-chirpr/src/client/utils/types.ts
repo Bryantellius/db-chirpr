@@ -7,4 +7,8 @@ export interface IChirp {
   time: string;
 }
 
-export interface IHeadline {}
+export interface IHeadline {
+  title: string;
+  source: string;
+  url: string;
+}

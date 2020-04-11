@@ -9,7 +9,7 @@ const App: React.FC<IAppProps> = () => {
       <NavBar />
       <div className="d-flex flex-row justify-content-center text-center my-2">
         <div className="col-md-3">
-          <h3>Major Headlines</h3>
+          <h3>Headlines</h3>
           <News />
         </div>
         <div className="col-md-6">
@@ -20,7 +20,7 @@ const App: React.FC<IAppProps> = () => {
           <h3>Weather</h3>
         </div>
       </div>
-      <footer>
+      <footer className="text-center align-self-center">
         <a className="nav-link" href="#timeline">
           To Top
         </a>
