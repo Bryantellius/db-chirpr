@@ -1,6 +1,6 @@
 import { Query } from "./index";
 
-const all = async () => Query("SELECT * FROM chirps");
+const all = async () => Query("SELECT c.id, c.userid, u.name, c.content, c.location, c._created as time FROM chirps c JOIN users u ON c.userid = u.id;");
 
 const one = async (id: string) =>
   Query("SELECT * FROM chirps WHERE id = ?", [id]);

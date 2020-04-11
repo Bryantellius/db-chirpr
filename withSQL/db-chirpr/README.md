@@ -29,7 +29,7 @@
   -- userid
   -- chirpid
 - Create a stored procedure named spUserMentions that returns all chirps a user is mentioned in Parameters: userid
-- The result set should contain: chirpid, chip text, chirp date
+- The result set should contain: chirpid, chirp text, chirp date
 - Tip: be sure to insert some fake mentions so that you can test the procedure!
 - When a chirp is created, check to see if there are mentions in the chirp text and add it to the database
 - Mentions should be put in chirps with the format @username.

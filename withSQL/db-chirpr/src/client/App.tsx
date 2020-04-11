@@ -1,36 +1,34 @@
-import * as React from 'react';
+import * as React from "react";
+import Main from "./views/Main";
+import News from "./views/News";
+import NavBar from "./Navbar";
 
-class App extends React.Component<IAppProps, IAppState> {
-	constructor(props: IAppProps) {
-		super(props);
-		this.state = {
-			name: null
-		};
-	}
+const App: React.FC<IAppProps> = () => {
+  return (
+    <div className="container-fluid my-2 bg-danger">
+      <NavBar />
+      <div className="d-flex flex-row justify-content-center text-center my-2">
+        <div className="col-md-3">
+          <h3>Major Headlines</h3>
+          <News />
+        </div>
+        <div className="col-md-6">
+          <h3 id="timeline">Timeline</h3>
+          <Main />
+        </div>
+        <div className="col-md-3">
+          <h3>Weather</h3>
+        </div>
+      </div>
+      <footer>
+        <a className="nav-link" href="#timeline">
+          To Top
+        </a>
+      </footer>
+    </div>
+  );
+};
 
-	async componentDidMount() {
-		try {
-			let r = await fetch('/api/hello');
-			let name = await r.json();
-			this.setState({ name });
-		} catch (error) {
-			console.log(error);
-		}
-	}
-
-	render() {
-		return (
-			<main className="container my-5">
-				<h1 className="text-primary text-center">Hello {this.state.name}!</h1>
-			</main>
-		);
-	}
-}
-
-export interface IAppProps {}
-
-export interface IAppState {
-	name: string;
-}
+interface IAppProps {}
 
 export default App;

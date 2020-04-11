@@ -23,9 +23,9 @@ router.get("/api/chirps/:id", async (req, res) => {
 });
 
 router.post("/api/chirps", async (req, res) => {
+  console.log(req.body);
   try {
     let body = {userid: 2, content: "New Post"};
-    console.log(body);
     res.json(await db.Chirps.insert(body));
   } catch (e) {
     console.log(e);
