@@ -7,8 +7,8 @@ const App: React.FC<IAppProps> = () => {
   return (
     <Router>
       <Switch>
-        {/* I had plans for a sign in route, but put a pin in it for now */}
-        <Route path="/" component={Main}></Route>
+        {/* I had plans for a sign-in route, but put a pin in it for now */}
+        <Route exact path="/" component={Main}></Route>
       </Switch>
     </Router>
   );

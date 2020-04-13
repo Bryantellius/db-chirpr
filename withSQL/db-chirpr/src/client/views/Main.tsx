@@ -5,6 +5,7 @@ import News from "./News";
 import AddChirp from "./AddChirp";
 import EditChirp from "./EditChirp";
 import NavBar from "../Navbar";
+import Mentions from "./Mentions";
 
 const Main: React.FC<IMainProps> = (props) => {
   return (
@@ -23,12 +24,13 @@ const Main: React.FC<IMainProps> = (props) => {
               <Route path="/:id/admin" component={EditChirp}></Route>
             </Switch>
           </div>
-          <div className="col-md-3">
-            <h3>Weather</h3>
+          <div className="col-md-3" id="mentionsDiv" hidden>
+            <h3>Mentions</h3>
+            <Mentions />
           </div>
         </div>
         <footer className="text-center align-self-center">
-          <a className="nav-link" href="#timeline">
+          <a className="nav-link text-dark" href="#timeline">
             To Top
           </a>
         </footer>

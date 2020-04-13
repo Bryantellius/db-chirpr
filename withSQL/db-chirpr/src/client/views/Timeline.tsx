@@ -12,6 +12,10 @@ const Timeline: React.FC<ITimelineProps> = () => {
     setChirps(chirps);
   };
 
+  const loadMentions = (props) => {
+    alert(props);
+  }
+
   useEffect(() => {
     getChirps();
   }, []);
@@ -22,7 +26,11 @@ const Timeline: React.FC<ITimelineProps> = () => {
         return (
           <div className="card shadow" key={`${chirp.id}-${chirp.userid}`}>
             <div className="card-body">
-              <h3 className="card-title border-bottom rounded">{chirp.name}</h3>
+              <a className="nav-link text-dark" onClick={() => loadMentions(chirp.name)}>
+                <h5 className="card-title border-bottom rounded">
+                  {chirp.name}
+                </h5>
+              </a>
               <p className="card-text">{chirp.content}</p>
             </div>
             <div className="card-footer d-flex justify-content-between">
