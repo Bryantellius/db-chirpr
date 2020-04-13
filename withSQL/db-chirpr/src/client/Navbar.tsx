@@ -1,17 +1,20 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
-const NavBar: React.FC<INavProps> = () => {
+const NavBar: React.FC = () => {
   return (
-    <div className="d-flex justify-content-between align-items-center bg-primary">
-      <h1 className="w-50">Chirpr</h1>
-      <div className="w-25 text-right d-flex justify-content-around">
-        <button className="btn btn-outline-dark">Home</button>
-        <button className="btn btn-outline-dark">Add Chirp</button>
+    <div className="d-flex justify-content-between align-items-center bg-primary shadow rounded">
+      <h1 className="w-50">Chirpr Bros.</h1>
+      <div className="w-50 d-flex justify-content-end">
+        <NavLink to="/">
+          <button className="btn btn-outline-warning mx-1">Home</button>
+        </NavLink>
+        <NavLink to="/add">
+          <button className="btn btn-outline-warning mx-1">Add Chirp</button>
+        </NavLink>
       </div>
     </div>
   );
 };
-
-interface INavProps {}
 
 export default NavBar;

@@ -10,7 +10,7 @@ const News: React.FC<INewsProps> = () => {
       `http://newsapi.org/v2/top-headlines?country=us&apiKey=e811d7812c3c469988e86dd711430d8a`
     );
     let data = await res.json();
-    let headlines: Array<IHeadline> = data.articles.map((item) => {
+    let headlines: Array<IHeadline> = data.articles.map((item: any) => {
       return {
         title: item.title,
         source: item.source.name,
@@ -29,19 +29,19 @@ const News: React.FC<INewsProps> = () => {
       {headlines.map((headline: IHeadline) => {
         return (
           <div
-            className="card"
+            className="card shadow"
             key={`${headline.source}-${headline.title.slice(0, 5)}`}
           >
             <div className="card-body">
-              <h6 className="card-title border rounded">{headline.title}</h6>
-              <p className="card-text">{headline.source}</p>
+              <h6 className="card-title border-bottom border-top p-1 rounded">{headline.title}</h6>
+              <p className="card-text">
+                <u>{headline.source}</u>
+              </p>
             </div>
             <div className="card-footer text-center">
-              <button className="btn btn-sm btn-outline-info">
-                <a href={headline.url} target="_blank">
-                  Read
-                </a>
-              </button>
+              <a href={headline.url} target="_blank">
+                <button className="btn btn-sm btn-outline-info">Read</button>
+              </a>
             </div>
           </div>
         );

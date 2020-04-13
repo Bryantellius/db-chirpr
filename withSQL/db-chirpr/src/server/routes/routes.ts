@@ -1,9 +1,9 @@
 import * as express from "express";
-import db from "./db";
+import db from "../db";
 
 const router = express.Router();
 
-router.get("/api/chirps", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     res.json(await db.Chirps.all());
   } catch (e) {
@@ -12,7 +12,7 @@ router.get("/api/chirps", async (req, res) => {
   }
 });
 
-router.get("/api/chirps/:id", async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
     let id = req.params.id;
     res.json((await db.Chirps.one(id))[0]);
@@ -22,10 +22,10 @@ router.get("/api/chirps/:id", async (req, res) => {
   }
 });
 
-router.post("/api/chirps", async (req, res) => {
+router.post("/", async (req, res) => {
   console.log(req.body);
   try {
-    let body = { userid: 2, content: "New Post" };
+    let body = req.body;
     res.json(await db.Chirps.insert(body));
   } catch (e) {
     console.log(e);
@@ -33,18 +33,18 @@ router.post("/api/chirps", async (req, res) => {
   }
 });
 
-router.put("/api/chirps/:id", async (req, res) => {
+router.put("/:id", (req, res) => {
   try {
     let id = req.params.id;
-    let body = { userid: 1, content: "Edited Post" };
-    res.json(await db.Chirps.update(id, body));
+    let body = req.body;
+    res.json(db.Chirps.update(id, body));
   } catch (e) {
     console.log(e);
     res.sendStatus(500);
   }
 });
 
-router.delete("/api/chirps/:id", async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     let id = req.params.id;
     res.json(await db.Chirps.remove(id));
