@@ -45,13 +45,58 @@ const insert = async (body: any) => {
     WHERE c.content = ?`,
       [body.content]
     );
+  } else if (body.content.search("@Wario") > -1) {
+    Query(
+      `insert into mentions
+    select 15, c.id
+    FROM chirps c
+    WHERE c.content = ?`,
+      [body.content]
+    );
+  } else if (body.content.search("@Waluigi") > -1) {
+    Query(
+      `insert into mentions
+    select 16, c.id
+    FROM chirps c
+    WHERE c.content = ?`,
+      [body.content]
+    );
+  } else if (body.content.search("@Toad") > -1) {
+    Query(
+      `insert into mentions
+    select 17, c.id
+    FROM chirps c
+    WHERE c.content = ?`,
+      [body.content]
+    );
+  } else if (body.content.search("@Bowser") > -1) {
+    Query(
+      `insert into mentions
+    select 18, c.id
+    FROM chirps c
+    WHERE c.content = ?`,
+      [body.content]
+    );
+  } else if (body.content.search("@King Bomb Omb") > -1) {
+    Query(
+      `insert into mentions
+    select 19, c.id
+    FROM chirps c
+    WHERE c.content = ?`,
+      [body.content]
+    );
+  } else if (body.content.search("@Donkey Kong") > -1) {
+    Query(
+      `insert into mentions
+    select 20, c.id
+    FROM chirps c
+    WHERE c.content = ?`,
+      [body.content]
+    );
   }
 };
 
 const update = async (id: string, body: any) => {
-  if (Query(`SELECT * FROM chirps WHERE content = ? AND id = ?`, [body, id])) {
-    return;
-  }
   Query(`UPDATE chirps SET content = ? WHERE id = ?`, [body, id]);
   if (body.content.search("@Mario") > -1) {
     Query(

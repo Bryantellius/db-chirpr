@@ -35,6 +35,12 @@ const AddChirp: React.FC<IAddProps> = (props) => {
           <option value="2">Luigi</option>
           <option value="3">Peach</option>
           <option value="4">Daisy</option>
+          <option value="5">Wario</option>
+          <option value="6">Waluigi</option>
+          <option value="7">Toad</option>
+          <option value="8">Bowser</option>
+          <option value="9">King Bomb Omb</option>
+          <option value="10">Donkey Kong</option>
         </select>
       </div>
       <div className="form-group">
