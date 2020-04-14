@@ -24,13 +24,20 @@ const Main: React.FC<IMainProps> = (props) => {
               <Route path="/:id/admin" component={EditChirp}></Route>
             </Switch>
           </div>
-          <div className="col-md-3" id="mentionsDiv" hidden>
-            <h3>Mentions</h3>
-            <Mentions />
+          <div id="mentions" className="col-md-3">
+            <Switch>
+              <Route
+                exact path="/"
+                render={() => (
+                  <div className="bg-success h-100 border border-light"></div>
+                )}
+              ></Route>
+              <Route path="/:id/mentions" component={Mentions}></Route>
+            </Switch>
           </div>
         </div>
         <footer className="text-center align-self-center">
-          <a className="nav-link text-dark" href="#timeline">
+          <a className="nav-link text-dark" href="#title">
             To Top
           </a>
         </footer>

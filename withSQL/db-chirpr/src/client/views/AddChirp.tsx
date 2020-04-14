@@ -2,6 +2,8 @@ import React from "react";
 import { useState } from "react";
 
 const AddChirp: React.FC<IAddProps> = (props) => {
+  setTimeout(() => document.getElementById("title").scrollIntoView(), 10);
+
   const [content, setContent] = useState<string>("");
 
   const post = () => {

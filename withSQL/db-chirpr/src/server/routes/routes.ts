@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get("/", async (req, res) => {
   try {
-    res.json(await db.Chirps.all());
+    res.json(await (await db.Chirps.all()).reverse());
   } catch (e) {
     console.log(e);
     res.sendStatus(500);

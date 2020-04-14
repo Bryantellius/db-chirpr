@@ -29,7 +29,7 @@ const News: React.FC<INewsProps> = () => {
       {headlines.map((headline: IHeadline) => {
         return (
           <div
-            className="card shadow"
+            className="card shadow my-1"
             key={`${headline.source}-${headline.title.slice(0, 5)}`}
           >
             <div className="card-body">

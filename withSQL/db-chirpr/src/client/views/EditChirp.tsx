@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { RouteComponentProps } from "react-router-dom";
 
 const EditChirp: React.FC<IEditProps> = (props) => {
+  setTimeout(() => document.getElementById("title").scrollIntoView(), 10);
+
   const [name, setName] = useState<string>("");
   const [userid, setUserid] = useState<string>("");
   const [content, setContent] = useState<string>("");
@@ -43,7 +45,7 @@ const EditChirp: React.FC<IEditProps> = (props) => {
 
   return (
     <div className="card p-2 d-flex flex-column align-items-stretch">
-      <h1>Edit Chirp</h1>
+      <h1 id="edit">Edit Chirp</h1>
       <div className="form-group">
         <input
           value={name}

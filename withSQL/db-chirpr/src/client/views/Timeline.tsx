@@ -1,7 +1,12 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import {
+  NavLink,
+  Switch,
+  BrowserRouter as Router,
+  Route,
+} from "react-router-dom";
 import type { IChirp } from "../utils/types";
+import Mentions from "./Mentions";
 
 const Timeline: React.FC<ITimelineProps> = () => {
   const [chirps, setChirps] = useState<IChirp[]>([]);
@@ -12,25 +17,25 @@ const Timeline: React.FC<ITimelineProps> = () => {
     setChirps(chirps);
   };
 
-  const loadMentions = (props) => {
-    alert(props);
-  }
-
   useEffect(() => {
     getChirps();
   }, []);
 
   return (
     <div id="timeline">
+      <h3>Timeline</h3>
       {chirps.map((chirp: IChirp) => {
         return (
-          <div className="card shadow" key={`${chirp.id}-${chirp.userid}`}>
+          <div className="card shadow my-1" key={`${chirp.id}-${chirp.userid}`}>
             <div className="card-body">
-              <a className="nav-link text-dark" onClick={() => loadMentions(chirp.name)}>
+              <NavLink
+                to={`/${chirp.userid}/mentions`}
+                className="nav-link text-dark"
+              >
                 <h5 className="card-title border-bottom rounded">
                   {chirp.name}
                 </h5>
-              </a>
+              </NavLink>
               <p className="card-text">{chirp.content}</p>
             </div>
             <div className="card-footer d-flex justify-content-between">
