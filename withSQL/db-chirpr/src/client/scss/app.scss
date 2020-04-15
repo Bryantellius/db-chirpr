@@ -1,5 +1,50 @@
 $theme-colors: (
-    'primary': #0091ea //Covalence Blue!  :D
+  "primary": #0091ea //Covalence Blue!  :D,
 );
 
-@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+#bsl {
+    font-size: xx-large;
+    font-weight: 900;
+    text-align: center;
+  animation-name: example;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes example {
+  0% {
+    background-color: red;
+  }
+  10% {
+    background-color: yellow;
+  }
+  20% {
+    background-color: blue;
+  }
+  30% {
+    background-color: green;
+  }
+  40% {
+    background-color: orange;
+  }
+  50% {
+    background-color: purple;
+  }
+  60% {
+    background-color: gold;
+  }
+  70% {
+    background-color: blue;
+  }
+  80% {
+    background-color: red;
+  }
+  90% {
+    background-color: silver;
+  }
+  100% {
+    background-color: green;
+  }
+}
+
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";

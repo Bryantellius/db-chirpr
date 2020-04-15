@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { RouteComponentProps, NavLink } from "react-router-dom";
+import { IMention } from "../utils/types";
 
 const Mentions: React.FC<IMentionProps> = (props) => {
+  // Scrolls view of mentions div into window
   setTimeout(() => document.getElementById("title").scrollIntoView(), 10);
 
   const [mentions, setMentions] = useState<IMention[]>([]);
@@ -16,6 +18,8 @@ const Mentions: React.FC<IMentionProps> = (props) => {
     getMentions();
   }, [props.match.params.id]);
 
+  // Condition renders depending on length of mentions array
+  // If array is empty, displays no mentions, else displays mentions in cards
   if (mentions.length === 0) {
     return (
       <>
@@ -38,7 +42,10 @@ const Mentions: React.FC<IMentionProps> = (props) => {
         <h3 className="text-center">User Mentions</h3>
         {mentions.map((mention: IMention) => {
           return (
-            <div className="card shadow my-1" key={`${mention.name}-${mention.id}`}>
+            <div
+              className="card shadow my-1"
+              key={`${mention.name}-${mention.id}`}
+            >
               <div className="card-body">
                 <h5 className="card-title border-bottom rounded">
                   {mention.name}
@@ -57,12 +64,5 @@ const Mentions: React.FC<IMentionProps> = (props) => {
 };
 
 interface IMentionProps extends RouteComponentProps<{ id: string }> {}
-
-interface IMention {
-  id: string;
-  name: string;
-  content: string;
-  time: string;
-}
 
 export default Mentions;

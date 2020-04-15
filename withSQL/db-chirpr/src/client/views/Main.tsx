@@ -1,17 +1,21 @@
 import * as React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import BSL from "../components/BSL";
 import Timeline from "./Timeline";
 import News from "./News";
 import AddChirp from "./AddChirp";
 import EditChirp from "./EditChirp";
-import NavBar from "../Navbar";
+import NavBar from "../components/Navbar";
 import Mentions from "./Mentions";
 
+// FC hub where most routes are included
+// Formatted with three basic columns for news, timeline, and mentions
 const Main: React.FC<IMainProps> = (props) => {
   return (
     <Router>
       <div className="container-fluid my-2 bg-danger">
         <NavBar />
+        <Route path="/bsl" component={BSL}></Route>
         <div className="d-flex flex-row justify-content-center text-center my-2">
           <div className="col-md-3">
             <h3>Real-World</h3>
@@ -27,7 +31,8 @@ const Main: React.FC<IMainProps> = (props) => {
           <div id="mentions" className="col-md-3">
             <Switch>
               <Route
-                exact path="/"
+                exact
+                path="/"
                 render={() => (
                   <div className="bg-success h-100 border border-light"></div>
                 )}

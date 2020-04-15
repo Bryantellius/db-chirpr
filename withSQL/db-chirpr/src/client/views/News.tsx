@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import type { IHeadline } from "../utils/types";
 
+// FC fetches and renders curated news articles from NewsAPI thirdparty
 const News: React.FC<INewsProps> = () => {
   const [headlines, setHeadlines] = useState<IHeadline[]>([]);
 

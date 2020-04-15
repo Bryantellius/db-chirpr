@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { RouteComponentProps } from "react-router-dom";
 
 const EditChirp: React.FC<IEditProps> = (props) => {
+  // Scrolls view to show form in window
   setTimeout(() => document.getElementById("title").scrollIntoView(), 10);
 
   const [name, setName] = useState<string>("");
@@ -13,6 +14,7 @@ const EditChirp: React.FC<IEditProps> = (props) => {
     const getChirp = async () => {
       let res = await fetch(`/api/chirps/${props.match.params.id}`);
       let chirp = await res.json();
+
       setName(chirp.name);
       setUserid(chirp.userid);
       setContent(chirp.content);
@@ -20,6 +22,7 @@ const EditChirp: React.FC<IEditProps> = (props) => {
     getChirp();
   }, [props.match.params.id]);
 
+  // Function creates object editedChirp and updated existing chirp in db onClick
   const saveEdit = async () => {
     let editedChirp = {
       userid,
@@ -36,6 +39,7 @@ const EditChirp: React.FC<IEditProps> = (props) => {
     history.back();
   };
 
+  // Function deletes existing chirp in db onClick
   const deleteChirp = async () => {
     await fetch(`/api/chirps/${props.match.params.id}`, {
       method: "DELETE",

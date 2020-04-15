@@ -12,3 +12,12 @@ export interface IHeadline {
   source: string;
   url: string;
 }
+
+export interface IMention {
+  id: string;
+  name: string;
+  content: string;
+  time: string;
+}
+
+

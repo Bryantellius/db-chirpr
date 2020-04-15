@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from "react";
-import {
-  NavLink,
-  Switch,
-  BrowserRouter as Router,
-  Route,
-} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import type { IChirp } from "../utils/types";
-import Mentions from "./Mentions";
 
+// FC fetches chirps from db and renders in div as cards
 const Timeline: React.FC<ITimelineProps> = () => {
   const [chirps, setChirps] = useState<IChirp[]>([]);
 
